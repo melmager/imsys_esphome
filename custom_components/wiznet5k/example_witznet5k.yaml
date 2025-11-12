@@ -1,0 +1,29 @@
+esphome:
+  name: w5500-test
+  platform: ESP32
+  board: esp32dev
+
+logger:
+  level: DEBUG
+
+# global SPI bus configuration
+spi:
+  clk_pin: 18
+  miso_pin: 19
+  mosi_pin: 23
+  frequency: 8000000
+  mode: 0
+
+# custom component instance - CS pin is passed to spi device
+wiznet5k:
+  cs_pin: 5
+  reset_pin: 4
+  static_ip: "192.168.10.50"
+  subnet_mask: "255.255.255.0"
+  gateway: "192.168.10.1"
+  mac_address: "DE:AD:BE:EF:FE:ED"
+  debug: true
+  update_interval: 60s
+
+api:
+ota:
